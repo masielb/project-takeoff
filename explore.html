@@ -24,39 +24,48 @@
    <!-- Gallery -->
    <main class="text-center">
     <!-- maybe I will add a jumbotron image-->
-    
+    <div class="roverexplain">
+        <h3>Your new home</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores incidunt mollitia, ipsa nihil sed veniam autem assumenda veritatis repudiandae in laudantium. Quas, amet rem culpa a soluta laboriosam maxime ipsa? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur dolorem hic quia, voluptate temporibus earum assumenda recusandae saepe? Voluptate nemo, dolorem harum consectetur obcaecati facilis maxime. Esse rem aut dolore.</p>
+    </div>
     <!-- User selects rover -->
-    <div class="row">
-        <button class="columns medium-6">Curiosity</button>
-        <button class="columns medium-6">Spirit</button>
-        <button class="columns medium-6">Opportunity</button>
+
+    <div class="row buttons">
+        <button class="columns medium-6 rovers" data-rover="curiosity">Curiosity</button>    
+        <button class="columns medium-6 rovers" data-rover="spirit">Spirit</button>
+        <button class="columns medium-6 rovers" data-rover="opportunity">Opportunity</button>
     </div>
     <!-- Rover images called -->
-    <div class="row">
+    <div class="row rover-images">
         <div class="columns small-12 medium-6">
-          <img src="https://placehold.it/200x200" class="thumbnail" alt="">
+          <img id="roverimage-1" src="https://placehold.it/200x200" class="thumbnail" alt="">
         </div>
         <div class="columns small-12 medium-6">
-          <img src="https://placehold.it/200x200" class="thumbnail" alt="">
+          <img id="roverimage-2" src="https://placehold.it/200x200" class="thumbnail" alt="">
         </div>
         <div class="columns small-12 medium-6">
-          <img src="https://placehold.it/200x200" class="thumbnail" alt="">
+          <img id="roverimage-3" src="https://placehold.it/200x200" class="thumbnail" alt="">
         </div>
         <div class="columns small-12 medium-6">
-          <img src="https://placehold.it/200x200" class="thumbnail" alt="">
+          <img id="roverimage-4" src="https://placehold.it/200x200" class="thumbnail" alt="">
         </div>
         <div class="columns small-12 medium-6">
-          <img src="https://placehold.it/200x200" class="thumbnail" alt="">
+          <img id="roverimage-5" src="https://placehold.it/200x200" class="thumbnail" alt="">
         </div>
         <div class="columns small-12 medium-6">
-          <img src="https://placehold.it/200x200" class="thumbnail" alt="">
+          <img id="roverimage-6" src="https://placehold.it/200x200" class="thumbnail" alt="">
+
         </div>
     </div>
 </main>
 
-   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-   <script src="assets/js/explore.js"></script>
+
+ 
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+  <script src="assets/js/script.js"></script>
+  
  </body>
  
  </html>
