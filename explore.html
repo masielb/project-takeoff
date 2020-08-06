@@ -26,10 +26,34 @@
     <!-- maybe I will add a jumbotron image-->
     
     <!-- User selects rover -->
-    <div class="row">
-        <button class="columns medium-6">Curiosity</button>
-        <button class="columns medium-6">Spirit</button>
-        <button class="columns medium-6">Opportunity</button>
+    <div class="buttons">
+      <button class="rovers" data-rover="curiosity">Curiosity</button>
+      <button class="rovers" data-rover="spirit">Spirit</button>
+      <button class="rovers" data-rover="opportunity">Opportunity</button>
+      <!-- <div class="row">
+        <div class="columns">
+          <ul class="dropdown menu align-center" data-dropdown-menu>
+            <li>
+              <a href="#choose">Choose The Date to View</a>
+              <ul class="menu">
+                <li>
+                  <a href="#year" data-year>Year</a>
+                  <ul class="menu">
+                    <li>
+                      <a href="#month">Month</a>
+                      <ul class="menu">
+                        <li>
+                          <a href="#day">Day</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div> -->
     </div>
     <!-- Rover images called -->
     <div class="row">
@@ -54,8 +78,9 @@
     </div>
 </main>
 
-   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
    <script src="assets/js/script.js"></script>
  </body>
  
