@@ -1,0 +1,36 @@
+body {
+  background: url(../images/PIA00407-16.jpg) no-repeat center center fixed !important; 
+  -webkit-background-size: cover !important;
+  -moz-backgr5ound-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  height: 100vh;
+  color: orange;
+}
+
+html {
+  height: 100vh;
+}
+
+a {
+  color: #F0A235;;
+}
+
+.height {
+  height: 100%;
+}
+
+
+.weather {
+  
+  bottom: 0;
+}
+
+.callout {
+  color: white;
+  font-weight: bold;
+}
+
+.size-48 {
+  font-size: 32px;
+}
