@@ -9,8 +9,29 @@ $.ajax({
    method: "GET"
 }).then(function(response) {
    console.log(response);
-   
+  /// write a function to get data we want and transfer to a readable display
+   $.get(
+    `https://api.nasa.gov/insight_weather/?feedtype=json&ver=1.0&api_key=Bjd4d9v5oIk2XvFo5LoqMnNbD8FLmddlFrXHu4k8`,
+ data => {
+   data.sol_keys.forEach(sol => write_sol_data(sol, data[sol]));
+   $("#summary").append('<hr>');
+ }
+).always(
+ function(data) {
+   // Write JSON stream to #json PRE
+   $("#json").text(JSON.stringify(data, null, 2));
+   if (one_sol) {
+       plot_sol_data(one_sol, data[one_sol]);
+   }
 });
+
+function write_sol_data(sol, sol_obj) {
+  // Summarize per-Sol temperature data to #summary DIV
+  $('#summary').append( `Sol <b>${sol}</b> Hi:  <b>${Math.round(sol_obj.AT.mn)}&deg;C</b> Low: <b>${Math.round(sol_obj.AT.mx)}&deg;C</b>Atmospheric pressure <b>${Math.round(sol_obj.PRE.mn)} Pa</b> to <b>${Math.round(sol_obj.PRE.mx)} Pa</b>.<br>`);
+  console.log(sol, sol_obj);
+
+  one_sol = sol;
+};
 
 var year = "";
 var month = "";
@@ -143,6 +164,3 @@ $(".rovers").on("click", function() {
       getYear();            
    });
 });
-
-
-
