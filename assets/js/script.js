@@ -11,8 +11,8 @@ $.ajax({
    for(var s = 0; s < solKey.length; s++){
       sol = solKey[s];
       console.log(data[sol]);
-      minTempEl = $("<p>").text("Lo: " + data[sol].AT.mn);
-      maxTempEl = $("<p>").text("Hi: " + data[sol].AT.mx);
+      minTempEl = $("<p>").text("Lo: " + data[sol].AT.mn.toFixed(1) + " °C");
+      maxTempEl = $("<p>").text("Hi: " + data[sol].AT.mx.toFixed(1) + " °C");
       weatherDate = $("<p>").text(moment(data[sol].Last_UTC).format("MMMM DD, YYYY"));
       solEl = $("<p>").text("Sol " + sol);
 
