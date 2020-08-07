@@ -1,5 +1,6 @@
 // Fire the foundation plugins
 $(document).foundation();
+$("#explore-date").hide();
 
 // NASA Mars Insight Weather API and functionality
 $.ajax({
