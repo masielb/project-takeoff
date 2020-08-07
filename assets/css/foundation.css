@@ -2599,7 +2599,7 @@ a.button:hover, a.button:focus {
   position: absolute;
   z-index: 10;
   display: none;
-  width: 300px;
+  width: 200px;
   padding: 1rem;
   visibility: hidden;
   border: 1px solid #cacaca;
