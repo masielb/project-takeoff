@@ -9,63 +9,76 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/foundation.css">
   <link rel="stylesheet" href="assets/css/explore.css">
   
 
   <title>Explore Takeoff</title>
 
 </head>
-<body>
-    <!-- Navigation Menu -->
-   <header class="container-fluid text-center text-white bg-dark p-2">
-     <nav><h1>Explore Takeoff</h1></nav>
-   </header>
-
-   <!-- Gallery -->
-   <main class="text-center">
-    <!-- maybe I will add a jumbotron image-->
-    <div class="roverexplain">
-        <h3>Your new home</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores incidunt mollitia, ipsa nihil sed veniam autem assumenda veritatis repudiandae in laudantium. Quas, amet rem culpa a soluta laboriosam maxime ipsa? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur dolorem hic quia, voluptate temporibus earum assumenda recusandae saepe? Voluptate nemo, dolorem harum consectetur obcaecati facilis maxime. Esse rem aut dolore.</p>
+<body class="container">
+  <!-- Navigation Menu -->
+ <header class="container-fluid text-center text-white bg-dark p-2">
+   <nav class="top-bar">
+     <div class="top-bar-left">
+       <ul class="menu">
+         <li class="menu-text"><a href="index.html">EXPLORE TAKEOFF</a></li>
+       </ul>
     </div>
-    <!-- User selects rover -->
+     <div class="top-bar-right">
+      <ul class="menu">
+        <li class="menu-text"><a href="index.html">PLAN</a></li>
+        <li class="menu-text"><a href="#">EXPLORE</a></li>
+        <li class="menu-text"><a href="#">TAKEOFF</a></li>
+      </ul>
+     </div>
+    </nav>
+ </header>
 
-    <div class="row buttons">
-        <button class="columns medium-6 rovers" data-rover="curiosity">Curiosity</button>    
-        <button class="columns medium-6 rovers" data-rover="spirit">Spirit</button>
-        <button class="columns medium-6 rovers" data-rover="opportunity">Opportunity</button>
-    </div>
-    <!-- Rover images called -->
-    <div class="row rover-images">
-        <div class="columns small-12 medium-6">
-          <img id="roverimage-1" src="https://placehold.it/200x200" class="thumbnail" alt="">
-        </div>
-        <div class="columns small-12 medium-6">
-          <img id="roverimage-2" src="https://placehold.it/200x200" class="thumbnail" alt="">
-        </div>
-        <div class="columns small-12 medium-6">
-          <img id="roverimage-3" src="https://placehold.it/200x200" class="thumbnail" alt="">
-        </div>
-        <div class="columns small-12 medium-6">
-          <img id="roverimage-4" src="https://placehold.it/200x200" class="thumbnail" alt="">
-        </div>
-        <div class="columns small-12 medium-6">
-          <img id="roverimage-5" src="https://placehold.it/200x200" class="thumbnail" alt="">
-        </div>
-        <div class="columns small-12 medium-6">
-          <img id="roverimage-6" src="https://placehold.it/200x200" class="thumbnail" alt="">
-
-        </div>
-    </div>
+ <!-- Gallery -->
+ <main class="text-center">
+  <!-- maybe I will add a jumbotron image-->
+  <div class="roverexplain">
+      <h3>Your new home</h3>
+      <p>Begin your journey by clicking on the name of one of the Rovers currently “living” on Mars. Curiosity, Spirit, and Opportunity bring us stunning views of Mars on a regular basis. Check out these eye-catching landscapes and discover the land of Mars. By simply clicking on the rover you would like to explore and selecting the a date (DD/MM/YYYY) you can begin to venture into outter space.</p>
+        <!--User selects date-->
+      <div id="explore-date" class="columns medium-6"><input type="date" id="start" name="trip-start"></div>
+  </div>
+  
+  <!-- User selects rover -->
+  <div class="row btns">
+      <button class="columns medium-6">Curiosity</button>
+      <button class="columns medium-6">Spirit</button>
+      <button class="columns medium-6">Opportunity</button>
+  </div>
+  <!-- Rover images called -->
+  <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      </div>
+  </div>
 </main>
 
-
- 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-  <script src="assets/js/script.js"></script>
-  
- </body>
+ <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="assets/js/script.js"></script>
+</body>
  
  </html>

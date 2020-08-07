@@ -1,7 +1,28 @@
 /* STYLING FOR THE EXPLORE PAGE */
 
+
+body {
+    background: url(../images/mars.jpeg) no-repeat center center fixed !important; 
+    -webkit-background-size: cover !important;
+    -moz-backgr5ound-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+    height: 100vh;
+    color: white;
+  }
+
 nav {
-    color: coral;
+    color: white;
+    background-color: rgba(255,127,80,0.8) !important;
+
+}
+
+ul {
+    list-style-type: none !important;
+}
+
+a {
+    color: white !important;
 }
 
 main {
@@ -9,8 +30,14 @@ main {
 }
 
 .roverexplain {
-    margin-left: 30em;
-    margin-right: 30em;
+    margin-left: 20em;
+    margin-right: 20em;
+}
+
+#explore-date {
+    color: white;
+    padding: 1em;
+    width: 20em;
 }
 
 button {
@@ -24,4 +51,18 @@ button {
 
 .btns {
     margin-bottom: 2em;
+}
+
+@media only screen and (max-width: 1200px) {
+    
+    .roverexplain {
+        margin: 2em;
+    }
+}
+}
+
+@media only screen and (max-width: 770px) {
+    .roverexplain {
+        margin: 2em;
+    }
 }
