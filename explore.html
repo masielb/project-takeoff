@@ -9,12 +9,33 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/foundation.css">
   <link rel="stylesheet" href="assets/css/explore.css">
   
 
   <title>Explore Mars</title>
 
 </head>
+<<<<<<< HEAD
+<body class="container">
+  <!-- Navigation Menu -->
+ <header class="container-fluid text-center text-white bg-dark p-2">
+   <nav class="top-bar">
+     <div class="top-bar-left">
+       <ul class="menu">
+         <li class="menu-text"><a href="index.html">EXPLORE TAKEOFF</a></li>
+       </ul>
+    </div>
+     <div class="top-bar-right">
+      <ul class="menu">
+        <li class="menu-text"><a href="index.html">PLAN</a></li>
+        <li class="menu-text"><a href="#">EXPLORE</a></li>
+        <li class="menu-text"><a href="#">TAKEOFF</a></li>
+      </ul>
+     </div>
+    </nav>
+ </header>
+=======
 <body>
     <!-- Navigation Menu -->
    <header class="container-fluid text-center text-white bg-dark p-2">
@@ -58,18 +79,52 @@
         </div>
         <div class="columns small-12 medium-6">
           <img id="roverimage-6" src="https://placehold.it/200x200" class="thumbnail" alt="">
+>>>>>>> acb0a68b6587011ad5174c87df78b0947aec14ca
 
-        </div>
-    </div>
+ <!-- Gallery -->
+ <main class="text-center">
+  <!-- maybe I will add a jumbotron image-->
+  <div class="roverexplain">
+      <h3>Your new home</h3>
+      <p>Begin your journey by clicking on the name of one of the Rovers currently “living” on Mars. Curiosity, Spirit, and Opportunity bring us stunning views of Mars on a regular basis. Check out these eye-catching landscapes and discover the land of Mars. By simply clicking on the rover you would like to explore and selecting the a date (DD/MM/YYYY) you can begin to venture into outter space.</p>
+        <!--User selects date-->
+      <div id="explore-date" class="columns medium-6"><input type="date" id="start" name="trip-start"></div>
+  </div>
+  
+  <!-- User selects rover -->
+  <div class="row btns">
+      <button class="columns medium-6">Curiosity</button>
+      <button class="columns medium-6">Spirit</button>
+      <button class="columns medium-6">Opportunity</button>
+  </div>
+  <!-- Rover images called -->
+  <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      <div class="columns small-12 medium-4 large-3">
+        <img src="https://placehold.it/250x250" class="thumbnail" alt="">
+      </div>
+      </div>
+  </div>
 </main>
 
-
- 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-  <script src="assets/js/script.js"></script>
-  
- </body>
+ <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="assets/js/script.js"></script>
+</body>
  
  </html>
