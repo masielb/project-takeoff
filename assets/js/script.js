@@ -118,7 +118,6 @@ function getPhotos() {
       var pics = response.photos
       for(var j = 0; j < pics.length; j++) {
          var mastCam = pics[j].camera.name.includes("MAST");
-         console.log(mastCam);
          var panCam = pics[j].camera.name.includes("PANCAM");
          if(mastCam === true || panCam === true){
             var imgSrc = response.photos[j].img_src
@@ -126,6 +125,10 @@ function getPhotos() {
             var imgEl = $("<img>").attr("src", imgSrc);
             $(".rover-images").append(imgEl);
          };
+         imgObj.push({
+            key: [j],
+            value: imgSrc
+         })
       };
    });
 };
