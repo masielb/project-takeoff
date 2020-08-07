@@ -35,6 +35,7 @@ var earthDateArr = [];
 var yearArr = [];
 var monthArr = [];
 var dayArr = [];
+var imageArr= [];
 
 function getYear() {
    $(".buttons").empty();
@@ -98,14 +99,14 @@ function confirmDate() {
    confirmEl = $("<h3>").text("Please confirm your search date:");
    $(".buttons").append(confirmEl, confirmBtn, cancelBtn);
 
-   $(".confirm").on("click", displayPhotos);
+   $(".confirm").on("click", getPhotos());
    
 
    console.log("Your date is:" + photoDate);
 };
 
 // NASA Rover Photos
-function displayPhotos() {
+function getPhotos() {
    $.ajax({
       url: "https://api.nasa.gov/mars-photos/api/v1/rovers/" + roverName + "/photos?earth_date=" + photoDate + "&api_key=Bjd4d9v5oIk2XvFo5LoqMnNbD8FLmddlFrXHu4k8",
       method: "GET"
