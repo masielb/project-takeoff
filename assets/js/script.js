@@ -105,7 +105,7 @@ function confirmDate() {
    $(".buttons").empty();
    photoDate = year + "-" + month + "-" + day
    var confirmBtn = $("<button>").addClass("confirm").text(moment(photoDate).format("MMMM DD, YYYY"));
-   var cancelBtn = $("<button>").addClass("re-do").text("Re-do");
+   var cancelBtn = $("<button>").addClass("re-do").text("Search Again");
    var confirmEl = $("<h3>").text("Please confirm your search date:");
    $(".buttons").append(confirmEl, confirmBtn, cancelBtn);
 
@@ -154,15 +154,20 @@ function displayPhotos() {
       $(".buttons").empty();
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
       var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars"}).addClass("thumbnail");
-      var resetBtn = $("<button>").attr("id", "reset");
+      var resetBtn = $("<button>").attr("id", "reset").text("Reset");
+      var reloadBtn = $("<button>").addClass("re-do").text("Search Again");
       imgDiv.append(imgEl);
-      $(".rover-grid").append(resetBtn, imgDiv);
+      $(".rover-grid").append(imgDiv);
    };
+   $(".buttons").append(reloadBtn, resetBtn);
+   $(".re-do").on("click", function(){
+      location.reload(true);
+   })
 };
 
 // Whent the gallery is built, user selects up to 4 photos for their own personal gallery
-$(function() {
-   $("#gallery > img").click(function () {
+function buildGallery () {
+   $("<img>").on("click", function () {
        $(this).toggleClass("selected");
    });
    $("#reset").click(function () {
@@ -194,7 +199,7 @@ $(function() {
        $("img:not(.selected)").hide();
        $("img.selected").removeClass("selected");
    });
-});
+};
 
 // When user clicks a rover name, generates an array of valid earth dates for that rover
 $(".rovers").on("click", function() {
