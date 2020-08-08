@@ -1,0 +1,21 @@
+body {
+    background: url(../images/astronaut.jpg) no-repeat center center fixed !important; 
+    -webkit-background-size: cover !important;
+    -moz-backgr5ound-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+    height: 100vh;
+    color: white;
+  }
+
+nav {
+    background-color: rgba(255,127,80,0.8) !important;
+}
+
+a {
+    color: white !important;
+}
+
+.card {
+    margin: 10em;
+}

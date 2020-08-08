@@ -2,7 +2,7 @@
 
 
 body {
-    background: url(../images/mars.jpeg) no-repeat center center fixed !important; 
+    background: url(../images/mars.jpg) no-repeat center center fixed !important; 
     -webkit-background-size: cover !important;
     -moz-backgr5ound-size: cover !important;
     -o-background-size: cover !important;
@@ -37,6 +37,7 @@ img:hover {
 }
 
 .roverexplain {
+<<<<<<< HEAD
 
     margin-left: 20em;
     margin-right: 20em;
@@ -50,6 +51,10 @@ img:hover {
     margin-left: 10em;
     margin-right: 10em;
 
+=======
+    margin-left: 10em;
+    margin-right: 10em;
+>>>>>>> ee8825bfb0536c3e316ab1a37fe46d50ee9c403e
 }
 
 button {
@@ -64,6 +69,7 @@ button {
 .btns {
     margin-bottom: 2em;
 }
+<<<<<<< HEAD
 
 @media only screen and (max-width: 1200px) {
     
@@ -78,3 +84,5 @@ button {
         margin: 2em;
     }
 }
+=======
+>>>>>>> ee8825bfb0536c3e316ab1a37fe46d50ee9c403e
