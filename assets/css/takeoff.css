@@ -1,3 +1,5 @@
+/* STYLING FOR THE TAKEOFF PAGE */
+
 body {
     background: url(../images/astronaut.jpg) no-repeat center center fixed !important; 
     -webkit-background-size: cover !important;
@@ -12,10 +14,14 @@ nav {
     background-color: rgba(255,127,80,0.8) !important;
 }
 
+.title-bar {
+    background-color: rgba(255,127,80,0.8) !important;
+}
+
 a {
     color: white !important;
 }
 
 .card {
-    margin: 10em;
+    margin: 5em;
 }
