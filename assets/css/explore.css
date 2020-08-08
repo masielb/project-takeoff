@@ -30,19 +30,8 @@ main {
 }
 
 .roverexplain {
-<<<<<<< HEAD
-    margin-left: 20em;
-    margin-right: 20em;
-}
-
-#explore-date {
-    color: white;
-    padding: 1em;
-    width: 20em;
-=======
     margin-left: 10em;
     margin-right: 10em;
->>>>>>> acb0a68b6587011ad5174c87df78b0947aec14ca
 }
 
 button {
