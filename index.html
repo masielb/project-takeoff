@@ -12,13 +12,31 @@
   </head>
 
   <body>
-    
+    <audio  src="./assets/audio/MechDrone4.mp3" type="audio/mpeg" loop autoplay></audio>
 
-    <div class="grid-container full grid-y" style="height: 100vh;">
+    <div class="grid-container full grid-y" id="bg" style="height: 100vh;">
+      
+      <header class="container-fluid text-center text-white bg-dark p-2">
+        <nav class="top-bar">
+          <div class="top-bar-left">
+            <ul class="menu">
+              <li class="textcolor"><h3>Welcome to Mars</h3></li>
+            </ul>
+         </div>
+          <div class="top-bar-right">
+           <ul class="menu">
+             <li class="menu-text"><a href="#" class="button">PLAN</a></li>
+             <li class="menu-text"><a href="#" class="button test">EXPLORE</a></li>
+             <li class="menu-text"><a href="#" class="button">TAKEOFF</a></li>
+           </ul>
+          </div>
+         </nav>
+      </header>
 
-      <div class="top-bar">
+
+      <!-- <div class="top-bar">
         <div class="top-bar-left">
-            <li class="menu-text">Hello Mars</li>
+            <li class="fs">Hello Mars!</li>
         </div>
         <div class="top-bar-right">
 
@@ -27,30 +45,23 @@
           </button>
 
           <div class="dropdown-pane right" id="menu-list" data-dropdown data-hover="true" data-hover-pane="true">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ratione officia ipsam exercitationem, enim nesciunt quidem repellat quae, minima non dolorem porro doloribus quibusdam commodi vel quam ullam eos? Perspiciatis? </p>
+            <button type="button" class="success button">Save</button>
+            <button type="button" class="warning rounded bordered shadow button test">Explore</button>
+            <button type="button" class="button rounded bordered shadow alert">Alert</button>
           </div>
 
+
+        </div>
+      </div> -->
+
+      <div id="content" style="height: 100%">
         
-
-
-          <!-- <ul class="dropdown menu" data-dropdown-menu>
-            <li class="is-dropdown-submenu-parent">
-              <a href="#"><i class="step fi-list size-72"></i></a>
-              <ul class="menu vertical">
-                <li><a class="" href="#">One</a></li>
-                <li><a href="#">Two</a></li>
-                <li><a href="#">Three</a></li>
-              </ul>
-            </li>
-          </ul> -->
+      </div>
+      <div class="grid-x grid-padding-x  weather">
+        <div class="textcolor cell">
+          <h2>Martian Weather</h2>
         </div>
       </div>
-
-      <h1>Hello Mars!</h1>
-      <div style="height: 100%;">
-
-      </div>
-
       <div class="grid-x grid-padding-x small-up-2 medium-up-4 large-up-7 weather weather-div">
        
       </div>
@@ -64,5 +75,6 @@
     <script src="assets/js/vendor/what-input.js"></script>
     <script src="assets/js/vendor/foundation.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>
