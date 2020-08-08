@@ -42,6 +42,7 @@ var monthArr = [];
 var dayArr = [];
 var imgObj= [];
 var imgArr = [];
+var userGallery = [];
 
 // Display only valid years for the chosen rover
 function getYear() {
@@ -156,48 +157,46 @@ function displayPhotos() {
       var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars"}).addClass("thumbnail");
       var resetBtn = $("<button>").attr("id", "reset").text("Reset");
       var reloadBtn = $("<button>").addClass("re-do").text("Search Again");
+      var galCreate = $("<button>").attr("id", "create").text("Create Gallery");
       imgDiv.append(imgEl);
       $(".rover-grid").append(imgDiv);
    };
-   $(".buttons").append(reloadBtn, resetBtn);
+   $(".buttons").append(reloadBtn, galCreate, resetBtn);
    $(".re-do").on("click", function(){
       location.reload(true);
    })
+   buildGallery();
 };
 
 // Whent the gallery is built, user selects up to 4 photos for their own personal gallery
 function buildGallery () {
-   $("<img>").on("click", function () {
+   $(".thumbnail").on("click", function () {
        $(this).toggleClass("selected");
    });
-   $("#reset").click(function () {
-       $("input").val("");
+   $("#reset").on("click", function () {
        $("img.selected").removeClass("selected");
    });
-   $("#create").click(function () {
-       var txt = "Have all desired images been selected?";
-       var conf = confirm(txt);
-       if (!conf) return false;
+   $("#create").on("click", function () {
+      $(".buttons").empty();
 
-       var albName = $("#albumName").val();
-       var desc = $("#desc").val();
-       if (!albName) {
-           alert("Album name required");
-           return false;
-       }
+      if ($("img.selected").length == 0) {
+         alert("Select at least 1 image");
+         return false;
+      } else if ($("img.selected").length > 4) {
+         alert("You may choose up to 4 images, please limit your selection to 4")
+      }
 
-       if ($("img.selected").length == 0) {
-           alert("Select at least 1 image");
-           return false;
-       }
+      for(var s = 0; s < $("img.selected").length; s ++){
+         var userImage = $("img.selected").attr("src");
+         userGallery.push(userImage);
+      }
+      
+      console.log(userGallery);
 
-       var $title = $("<h3 />").text(albName);
-       var $title2 = $("<h4 />").text(desc);
-       $("#galleryHeader").append($title, $title2).show();
-       $("#form").hide();
-       $("img").off("click");
-       $("img:not(.selected)").hide();
-       $("img.selected").removeClass("selected");
+      $("img").off("click");
+      $("img:not(.selected)").hide();
+      $("img.selected").removeClass("selected");
+         
    });
 };
 
