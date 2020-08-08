@@ -29,8 +29,15 @@ main {
     margin-top: 3em;
 }
 
+img.selected {
+    border: 3px solid green;
+}
+img:hover {
+    cursor: pointer;
+}
+
 .roverexplain {
-<<<<<<< HEAD
+
     margin-left: 20em;
     margin-right: 20em;
 }
@@ -39,10 +46,10 @@ main {
     color: white;
     padding: 1em;
     width: 20em;
-=======
+
     margin-left: 10em;
     margin-right: 10em;
->>>>>>> acb0a68b6587011ad5174c87df78b0947aec14ca
+
 }
 
 button {
@@ -57,7 +64,6 @@ button {
 .btns {
     margin-bottom: 2em;
 }
-<<<<<<< HEAD
 
 @media only screen and (max-width: 1200px) {
     
@@ -65,12 +71,10 @@ button {
         margin: 2em;
     }
 }
-}
+
 
 @media only screen and (max-width: 770px) {
     .roverexplain {
         margin: 2em;
     }
 }
-=======
->>>>>>> acb0a68b6587011ad5174c87df78b0947aec14ca
