@@ -27,6 +27,9 @@ $.ajax({
    }
 });
 
+// User experience global variables
+var user = {};
+
 // NASA Rover Picture Query Functionality Global Variables
 var year = "";
 var month = "";
@@ -39,6 +42,7 @@ var monthArr = [];
 var dayArr = [];
 var imgObj= [];
 var imgArr = [];
+var userGallery = [];
 
 // Display only valid years for the chosen rover
 function getYear() {
@@ -102,7 +106,7 @@ function confirmDate() {
    $(".buttons").empty();
    photoDate = year + "-" + month + "-" + day
    var confirmBtn = $("<button>").addClass("confirm").text(moment(photoDate).format("MMMM DD, YYYY"));
-   var cancelBtn = $("<button>").addClass("re-do").text("Re-do");
+   var cancelBtn = $("<button>").addClass("re-do").text("Search Again");
    var confirmEl = $("<h3>").text("Please confirm your search date:");
    $(".buttons").append(confirmEl, confirmBtn, cancelBtn);
 
@@ -128,13 +132,10 @@ function getPhotos() {
          var panCam = pics[j].camera.name.includes("PANCAM");
          if(mastCam === true || panCam === true){
             var imgSrc = response.photos[j].img_src
-            // var imgEl = $("<img>").attr("src", imgSrc);
-            // $(".rover-images").append(imgEl);
          };
          imgObj.push({imgSrc});
       };
       sortPhotos();
-      // $(".rover-pics").show();
    });
 };
 
@@ -154,10 +155,49 @@ function displayPhotos() {
       $(".buttons").empty();
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
       var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars"}).addClass("thumbnail");
-
+      var resetBtn = $("<button>").attr("id", "reset").text("Reset");
+      var reloadBtn = $("<button>").addClass("re-do").text("Search Again");
+      var galCreate = $("<button>").attr("id", "create").text("Create Gallery");
       imgDiv.append(imgEl);
       $(".rover-grid").append(imgDiv);
    };
+   $(".buttons").append(reloadBtn, galCreate, resetBtn);
+   $(".re-do").on("click", function(){
+      location.reload(true);
+   })
+   buildGallery();
+};
+
+// Whent the gallery is built, user selects up to 4 photos for their own personal gallery
+function buildGallery () {
+   $(".thumbnail").on("click", function () {
+       $(this).toggleClass("selected");
+   });
+   $("#reset").on("click", function () {
+       $("img.selected").removeClass("selected");
+   });
+   $("#create").on("click", function () {
+      $(".buttons").empty();
+
+      if ($("img.selected").length == 0) {
+         alert("Select at least 1 image");
+         return false;
+      } else if ($("img.selected").length > 4) {
+         alert("You may choose up to 4 images, please limit your selection to 4")
+      }
+
+      for(var s = 0; s < $("img.selected").length; s ++){
+         var userImage = $("img.selected").attr("src");
+         userGallery.push(userImage);
+      }
+      
+      console.log(userGallery);
+
+      $("img").off("click");
+      $("img:not(.selected)").hide();
+      $("img.selected").removeClass("selected");
+         
+   });
 };
 
 // When user clicks a rover name, generates an array of valid earth dates for that rover
