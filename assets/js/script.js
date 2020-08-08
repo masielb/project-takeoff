@@ -128,13 +128,10 @@ function getPhotos() {
          var panCam = pics[j].camera.name.includes("PANCAM");
          if(mastCam === true || panCam === true){
             var imgSrc = response.photos[j].img_src
-            // var imgEl = $("<img>").attr("src", imgSrc);
-            // $(".rover-images").append(imgEl);
          };
          imgObj.push({imgSrc});
       };
       sortPhotos();
-      // $(".rover-pics").show();
    });
 };
 
