@@ -188,3 +188,21 @@ $(".rovers").on("click", function() {
       getYear();            
    });
 });
+
+// fade in for landing page
+$("#bg").animate({
+   opacity: 1,
+ }, 2000, function() {
+
+ });
+
+ //smooth transition from landing to explore
+ $(".test").on("click", function () {
+   $("#bg").animate({
+     opacity: 0,
+   }, 1000, function() {
+     window.location.href = "./explore.html";
+   })
+
+   
+ });

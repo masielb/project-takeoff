@@ -17,6 +17,9 @@
 
 </head>
 <body class="container">
+   <!-- Gallery -->
+   <div id="bg">
+  
   <!-- Navigation Menu -->
   <header class="container-fluid text-center text-white bg-dark p-2">
     <nav>
@@ -42,32 +45,36 @@
     </nav>
   </header>
 
- <!-- Gallery -->
- <main class="text-center">
 
-  <div class="roverexplain">
-      <h3>Your New Home Awaits!</h3>
-      <p>Begin your journey by clicking on the name of one of the Rovers currently “living” on Mars. Spirit and Opportunity have concluded their missions, 
-        but Curiosity continues to bring us stunning views of Mars on a regular basis. Check out these eye-catching landscapes and discover the land of Mars. 
-        Simply clicking on the rover you would like to view and then narrow your search by month, and then by day.</p>
-        <!--User selects date-->
-      <div id="explore-date" class="columns medium-6"><input type="date" id="start" name="trip-start"></div>
-  </div>
+    <main class="text-center">
+      <div class="roverexplain">
+        <h3>Your New Home Awaits!</h3>
+        <p>Begin your journey by clicking on the name of one of the Rovers currently “living” on Mars. Spirit and Opportunity have concluded their missions, 
+          but Curiosity continues to bring us stunning views of Mars on a regular basis. Check out these eye-catching landscapes and discover the land of Mars. 
+          Simply clicking on the rover you would like to view and then narrow your search by month, and then by day.</p>
+          <!--User selects date-->
+        <div id="explore-date" class="columns medium-6"><input type="date" id="start" name="trip-start"></div>
+    </div>
+    
+    <!-- User selects rover -->
+    <div class="row buttons">
+        <button class="columns medium-6 rovers" data-rover="curiosity">Curiosity</button>
+        <button class="columns medium-6 rovers" data-rover="spirit">Spirit</button>
+        <button class="columns medium-6 rovers" data-rover="opportunity">Opportunity</button>
+    </div>
   
-  <!-- User selects rover -->
-  <div class="row buttons">
-      <button class="columns medium-6 rovers" data-rover="curiosity">Curiosity</button>
-      <button class="columns medium-6 rovers" data-rover="spirit">Spirit</button>
-      <button class="columns medium-6 rovers" data-rover="opportunity">Opportunity</button>
-  </div>
+    <!-- Rover images called -->
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x rover-grid">
+          
+        </div>
+    </div>
+  </main>
 
-  <!-- Rover images called -->
-  <div class="grid-container">
-      <div class="grid-x grid-padding-x rover-grid">
-        
-      </div>
-  </div>
-</main>
+    
+   </div>
+
+  
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
