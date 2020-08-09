@@ -189,7 +189,7 @@ $(".rovers").on("click", function() {
    });
 });
 
-// fade in for landing page
+// fade in for landing and explore page
 $("#bg").animate({
    opacity: 1,
  }, 2000, function() {
