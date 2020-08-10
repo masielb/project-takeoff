@@ -42,19 +42,19 @@
 
     <main class="text-center">
       <div class="roverexplain">
-        <h3>Your New Home Awaits!</h3>
-        <p>Begin your journey by clicking on the name of one of the Rovers currently “living” on Mars. Spirit and Opportunity have concluded their missions, 
-          but Curiosity continues to bring us stunning views of Mars on a regular basis. Check out these eye-catching landscapes and discover the land of Mars. 
-          Simply clicking on the rover you would like to view and then narrow your search by month, and then by day.</p>
-          <!--User selects date-->
+        <h3 id="explain-header">Your New Home Awaits!</h3>
+        <p id="explain-body">Begin your journey by clicking on the name of one of the Rovers currently “living” on Mars. You'll have the chance to
+          build a personal gallery of up to four(4) rover images to display on the viewscreens inside your Martian homestead. This section will update 
+          with further directions to help narrow your search.</p>
+          <!--User selects date - this area is currently deprecated and hidden due to excessive undefined results if user selects an invalid date with no data-->
         <div id="explore-date" class="columns medium-6"><input type="date" id="start" name="trip-start"></div>
     </div>
     
     <!-- User selects rover -->
     <div class="row buttons">
-        <button class="columns medium-6 rovers" data-rover="curiosity">Curiosity</button>
-        <button class="columns medium-6 rovers" data-rover="spirit">Spirit</button>
-        <button class="columns medium-6 rovers" data-rover="opportunity">Opportunity</button>
+        <button class="columns medium-6 rovers" data-rover="Curiosity">Curiosity</button>
+        <button class="columns medium-6 rovers" data-rover="Spirit">Spirit</button>
+        <button class="columns medium-6 rovers" data-rover="Opportunity">Opportunity</button>
     </div>
 
   <!-- Rover images called -->
