@@ -17,27 +17,33 @@
 
 </head>
 <body class="container">
-  
- <!-- Gallery -->
+   <!-- Gallery -->
    <div id="bg">
-
-    <!-- Navigation Menu -->
- <header class="container-fluid text-center text-white bg-dark p-2">
-  <nav class="top-bar">
-    <div class="top-bar-left">
-      <ul class="menu">
-        <li class="menu-text"><a href="index.html">EXPLORE TAKEOFF</a></li>
-      </ul>
-   </div>
-    <div class="top-bar-right">
-     <ul class="menu">
-       <li class="menu-text"><a href="index.html">PLAN</a></li>
-       <li class="menu-text"><a href="explore.html">EXPLORE</a></li>
-       <li class="menu-text"><a href="takeoff.html">TAKEOFF</a></li>
-     </ul>
-    </div>
-   </nav>
-</header>
+  
+  <!-- Navigation Menu -->
+  <header class="container-fluid text-center text-white bg-dark p-2">
+    <nav>
+        <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+            <div class="title-bar-title">Menu</div>
+        </div>
+        
+        <div class="top-bar" id="example-menu">
+        <div class="top-bar-left">
+            <ul class="menu">
+            <li class="menu-text"><a href="index.html">EXPLORE TAKEOFF</a></li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+        <ul class="menu">
+            <li class="menu-text"><a href="index.html">PLAN</a></li>
+            <li class="menu-text"><a href="#">EXPLORE</a></li>
+            <li class="menu-text"><a href="takeoff.html">TAKEOFF</a></li>
+        </ul>
+        </div>
+        </div>
+    </nav>
+  </header>
 
 
     <main class="text-center">
@@ -56,19 +62,19 @@
         <button class="columns medium-6 rovers" data-rover="spirit">Spirit</button>
         <button class="columns medium-6 rovers" data-rover="opportunity">Opportunity</button>
     </div>
-  
-    <!-- Rover images called -->
-    <div class="grid-container">
-        <div class="grid-x grid-padding-x rover-grid">
-          
-        </div>
-    </div>
-  </main>
 
-    
-   </div>
+
+  <!-- Rover images called -->
+  <div class="grid-container">
+      <div id="gallery" class="grid-x grid-padding-x rover-grid">
+
+      </div>
+  </div>
+</main>
+
 
   
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
