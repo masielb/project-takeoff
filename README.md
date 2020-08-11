@@ -8,3 +8,8 @@ Our product enables users to access both historical and current weather data and
 * NASA InSight Weather API
 * NASA Mars Rover photo API
 
+#### Screenshots:
+![Screenshots](/assets/images/screenshot1.png)
+![Screenshots](/assets/images/screenshot2.png)
+![Screenshots](/assets/images/screenshot3.png)
+![Screenshots](/assets/images/screenshot4.png)
