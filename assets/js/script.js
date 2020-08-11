@@ -9,7 +9,6 @@ $.ajax({
    method: "GET"
 }).then(function(data) {
    var solKey = data.sol_keys;
-   console.log(solKey);
    for(var s = 0; s < solKey.length; s++){
       sol = solKey[s];
       minTempEl = $("<p>").text("Lo: " + data[sol].AT.mn.toFixed(1) + " °C");
@@ -50,8 +49,12 @@ var cancelBtn = $("<button>").addClass("re-do").text("Start Over");
 
 // Store user gallery in local storage
 function saveUserPhotos() {
-   localStorage.setItem("userGallery", JSON.stringify(userGallery));
-
+   var jsonGallery = [];
+   for(var g = 0; g < userGallery.length; g++){
+      var image =  userGallery[g].currentSrc
+      jsonGallery.push(image);
+   }
+   localStorage.setItem("userGallery", JSON.stringify(jsonGallery));
 };
 
 // Display only valid years for the chosen rover
@@ -218,6 +221,7 @@ function buildGallery () {
    
       $("img").off("click");
       $("img:not(.selected)").remove();
+      $("img.selected").removeClass("selected");
       
       displayGallery();
          
@@ -227,11 +231,10 @@ function buildGallery () {
 function displayGallery() {
    var userImage = $(".thumbnail");
    for (var s = 0; s < userImage.length; s++){
-      console.log("userImage: ", userImage[s]);
+      userGallery.push(userImage[s]);
    }
-   
-   // $("#gallery").empty();
-   // $("img.selected").removeClass("selected");
+   console.log(userGallery)
+   $("#gallery").empty();
 
 
    explainHead = "Ready for Launch!"
@@ -241,8 +244,8 @@ function displayGallery() {
    var saveBtn = $("<button>").addClass("save").text("SAVE");
    for(var t = 0; t < userGallery.length; t++){
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
-      var userImg = userGallery[t];
-      userImgEl = $("<img>").attr({src:userImg, alt:"Your photo from Mars"}).addClass("thumbnail");
+      var userImgEl = userGallery[t];
+      // userImgEl = $("<img>").attr({src:userImg, alt:"Your photo from Mars"}).addClass("thumbnail");
       imgDiv.append(userImgEl);
       $("#gallery").append(imgDiv);
    };
