@@ -80,6 +80,17 @@ button.save:hover {
     background-color: white;
 }
 
+button.close-button {
+    background-color: white;
+    padding: 1px;
+    width: 30px;
+    margin: 1px;
+}
+
+.reveal {
+    color: black;
+}
+
 .btns {
     margin-bottom: 2em;
 }
