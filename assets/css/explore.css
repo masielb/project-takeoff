@@ -37,6 +37,7 @@ img:hover {
 }
 
 .roverexplain {
+
     border: solid;
     border-color: coral;
     background-color: rgba(255, 127, 80, 0.5);
@@ -83,10 +84,6 @@ button.save:hover {
     margin-bottom: 2em;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 69ecaf3e4a53215387a56eccfeb7208f85137da2
 @media only screen and (max-width: 1200px) {
     
     .roverexplain {
@@ -100,10 +97,7 @@ button.save:hover {
         margin: 2em;
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 69ecaf3e4a53215387a56eccfeb7208f85137da2
 #bg {
     width: 100%;
     height: 100%;
@@ -115,7 +109,4 @@ button.save:hover {
     -o-background-size: cover !important;
     background-size: cover !important; 
   }
-<<<<<<< HEAD
-=======
 
->>>>>>> 69ecaf3e4a53215387a56eccfeb7208f85137da2
