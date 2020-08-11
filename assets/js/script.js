@@ -1,7 +1,7 @@
 // Fire the foundation plugins and hide containers
 $(document).foundation();
 $("#explore-date").hide();
-$(".rover-pics").hide();
+$("#explore-user").hide();
 
 // NASA Mars Insight Weather API call and dynamic HTML elements
 $.ajax({
@@ -25,8 +25,28 @@ $.ajax({
    }
 });
 
-// User experience global variables
-var user = {};
+// User ticket experience global variables
+var user = [];
+
+function takeOff() {
+   var userName = $("#username").val();
+   var launchDate = $("#start").val();
+
+   user.push(userName);
+   user.push(launchDate);
+   localStorage.setItem("user", JSON.stringify(user));
+   location.href="takeoff.html";
+
+}
+
+var storedUser = JSON.parse(localStorage.getItem("user"));
+
+if(storedUser !== null){
+   $("#ticket-header").text("Mars Ticket for: " + storedUser[0]);
+   $("#ticket-number").text("Confirmation #: 1312-YM1W-1Q33");
+   $("#ticket-text").text("Your Mission to Mars launches on: " + moment(storedUser[1]).format("MMMM DD, YYYY"));
+};
+
 
 // NASA Rover Picture Query Functionality Global Variables
 var year = "";
@@ -55,6 +75,23 @@ function saveUserPhotos() {
       jsonGallery.push(image);
    }
    localStorage.setItem("userGallery", JSON.stringify(jsonGallery));
+
+   explainHead = "Ready For Launch!"
+   explainBody = "Enter your name below and Choose your launch date:"
+   explainHeadEl.text(explainHead);
+   explainBodyEl.text(explainBody);
+   $(".buttons").empty();
+   $("#gallery").empty();
+
+   $("#explore-date").show();
+   $("#explore-user").show();
+
+   var submitBtn = $("<button>").addClass("submit").text("Take Off!");
+   $(".buttons").append(submitBtn);
+   $(".submit").on("click", function() {
+      takeOff();
+   });
+
 };
 
 // Display only valid years for the chosen rover
@@ -183,7 +220,7 @@ function displayPhotos() {
       $(".buttons").empty();
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
       var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars", id:"photo-"+[r]}).addClass("thumbnail");
-      var resetBtn = $("<button>").attr("id", "reset").text("Reset");
+      var resetBtn = $("<button>").attr("id", "reset").text("Reset Selection");
       var reloadBtn = $("<button>").addClass("re-do").text("Start Over");
 
       var galCreate = $("<button>").attr("id", "create").text("Create Gallery");
@@ -210,25 +247,23 @@ function buildGallery () {
        $("img.selected").removeClass("selected");
    });
    $("#create").on("click", function () {
-      $(".buttons").empty();
+      if ($("img.selected").length === 0 || $("img.selected").length > 4 ) {
+         $("#create").attr("data-open", "errormodal");
 
-      if ($("img.selected").length == 0) {
-         alert("Select at least 1 image");
-         return false;
-      } else if ($("img.selected").length > 4) {
-         alert("You may choose up to 4 images, please limit your selection to 4")
-      }
-   
-      $("img").off("click");
-      $("img:not(.selected)").remove();
-      $("img.selected").removeClass("selected");
-      
-      displayGallery();
-         
+      } else {
+         $("#create").removeAttr("data-open", "errormodal");
+         displayGallery();
+
+      };  
    });
 };
 
 function displayGallery() {
+   $(".buttons").empty();
+   $("img").off("click");
+   $("img:not(.selected)").remove();
+   $("img.selected").removeClass("selected");
+
    var userImage = $(".thumbnail");
    for (var s = 0; s < userImage.length; s++){
       userGallery.push(userImage[s]);
@@ -237,15 +272,14 @@ function displayGallery() {
    $("#gallery").empty();
 
 
-   explainHead = "Ready for Launch!"
-   explainBody = "If you are ready to save your Backyard View, click the SAVE Button, otherwise click Start Over"
+   explainHead = "You're almost there!"
+   explainBody = "If you are ready to save your Backyard View, click the SAVE Button, otherwise click Start Ove."
    explainBodyEl.text(explainBody);
    explainHeadEl.text(explainHead);
    var saveBtn = $("<button>").addClass("save").text("SAVE");
    for(var t = 0; t < userGallery.length; t++){
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
       var userImgEl = userGallery[t];
-      // userImgEl = $("<img>").attr({src:userImg, alt:"Your photo from Mars"}).addClass("thumbnail");
       imgDiv.append(userImgEl);
       $("#gallery").append(imgDiv);
    };

@@ -31,7 +31,7 @@
         <div class="top-bar" id="example-menu">
         <div class="top-bar-left">
             <ul class="menu">
-            <li class="menu-text"><a href="index.html">EXPLORE TAKEOFF</a></li>
+            <li class="menu-text"><a href="index.html">MARS TRAVEL AGENCY</a></li>
             </ul>
         </div>
         <div class="top-bar-right">
@@ -46,15 +46,24 @@
   </header>
 
 
-    <main class="text-center">
+  <main class="text-center">
       <div class="roverexplain">
         <h3 id="explain-header">Your New Home Awaits!</h3>
         <p id="explain-body">Begin your journey by clicking on the name of one of the Rovers currently “living” on Mars. You'll have the chance to
           build a personal gallery of up to four(4) rover images to display on the viewscreens inside your Martian homestead. This section will update 
           with further directions to help narrow your search.</p>
-          <!--User selects date - this area is currently deprecated and hidden due to excessive undefined results if user selects an invalid date with no data-->
+        <div class="reveal" id="errormodal" data-reveal>
+          <h1>Oops!</h1>
+          <p class="lead">Backyard View</p>
+          <p>Please ensure you select at least one(1) but no more than four(4) images.</p>
+          <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div id="explore-date" class="columns medium-6"><input type="date" id="start" name="trip-start"></div>
-    </div>
+        <div id="explore-user" class="columns medium-6"><input type="text" id="username" name="user-name"></div>
+      </div>
+     
     
     <!-- User selects rover -->
     <div class="row buttons">
@@ -63,14 +72,14 @@
         <button class="columns medium-6 rovers" data-rover="Opportunity">Opportunity</button>
     </div>
 
-  <!-- Rover images called -->
-  <div class="grid-container">
+    <!-- Rover images called -->
+    <div class="grid-container">
       <div id="gallery" class="grid-x grid-padding-x rover-grid">
 
 
       </div>
-  </div>
-</main>
+    </div>
+  </main>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
