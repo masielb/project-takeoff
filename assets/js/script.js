@@ -178,7 +178,7 @@ function displayPhotos() {
    for(var r = 0; r < 6; r++){
       $(".buttons").empty();
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
-      var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars"}).addClass("thumbnail");
+      var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars", id:"photo-"+[r]}).addClass("thumbnail");
       var resetBtn = $("<button>").attr("id", "reset").text("Reset");
       var reloadBtn = $("<button>").addClass("re-do").text("Start Over");
       var galCreate = $("<button>").attr("id", "create").text("Create Gallery");
@@ -213,23 +213,25 @@ function buildGallery () {
       } else if ($("img.selected").length > 4) {
          alert("You may choose up to 4 images, please limit your selection to 4")
       }
-
-      for(var s = 0; s < $("img.selected").length; s ++){
-         var userImage = $("img.selected")[s]
-         var userImageLink = userImage.attr("src");
-         userGallery.push(userImageLink);
-      }
-
+   
       $("img").off("click");
-      // $("img:not(.selected)").hide();
-      $("#gallery").empty();
-      $("img.selected").removeClass("selected");
+      $("img:not(.selected)").remove();
+      
       displayGallery();
          
    });
 };
 
 function displayGallery() {
+   var userImage = $(".thumbnail");
+   for (var s = 0; s < userImage.length; s++){
+      console.log("userImage: ", userImage[s]);
+   }
+   
+   // $("#gallery").empty();
+   // $("img.selected").removeClass("selected");
+
+
    explainHead = "Ready for Launch!"
    explainBody = "If you are ready to save your Backyard View, click the SAVE Button, otherwise click Start Over"
    explainBodyEl.text(explainBody);
@@ -248,8 +250,8 @@ function displayGallery() {
    });
    $(".save").on("click", function () {
       saveUserPhotos();
-   })
-}
+   });
+};
 // When user clicks a rover name, generates an array of valid earth dates for that rover
 $(".rovers").on("click", function() {
    roverName = $(this).attr("data-rover");
