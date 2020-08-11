@@ -77,7 +77,7 @@ function saveUserPhotos() {
    localStorage.setItem("userGallery", JSON.stringify(jsonGallery));
 
    explainHead = "Ready For Launch!"
-   explainBody = "Enter your name below and Choose your launch date:"
+   explainBody = "Choose your launch date and enter your name to generate a ticket:"
    explainHeadEl.text(explainHead);
    explainBodyEl.text(explainBody);
    $(".buttons").empty();
