@@ -45,6 +45,14 @@
     </nav>
   </header>
 
+  <div class="reveal" id="errormodal" data-reveal>
+    <h1>Oops!</h1>
+    <p class="lead">Backyard View</p>
+    <p>Please ensure you select at least one(1) but no more than four(4) images.</p>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
   <main class="text-center">
       <div class="roverexplain">
@@ -52,14 +60,6 @@
         <p id="explain-body">Begin your journey by clicking on the name of one of the Rovers currently “living” on Mars. You'll have the chance to
           build a personal gallery of up to four(4) rover images to display on the viewscreens inside your Martian homestead. This section will update 
           with further directions to help narrow your search.</p>
-        <div class="reveal" id="errormodal" data-reveal>
-          <h1>Oops!</h1>
-          <p class="lead">Backyard View</p>
-          <p>Please ensure you select at least one(1) but no more than four(4) images.</p>
-          <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
         <div id="explore-date" class="columns medium-6"><input type="date" id="start" name="trip-start"></div>
         <div id="explore-user" class="columns medium-6"><input type="text" id="username" name="user-name"></div>
       </div>
