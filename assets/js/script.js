@@ -12,7 +12,6 @@ $.ajax({
    console.log(solKey);
    for(var s = 0; s < solKey.length; s++){
       sol = solKey[s];
-      console.log(data[sol]);
       minTempEl = $("<p>").text("Lo: " + data[sol].AT.mn.toFixed(1) + " °C");
       maxTempEl = $("<p>").text("Hi: " + data[sol].AT.mx.toFixed(1) + " °C");
       weatherDate = $("<p>").text(moment(data[sol].Last_UTC).format("MMMM DD, YYYY"));
@@ -43,9 +42,24 @@ var dayArr = [];
 var imgObj= [];
 var imgArr = [];
 var userGallery = [];
+var explainHead = "";
+var explainBody = "";
+var explainHeadEl = $("#explain-header")
+var explainBodyEl = $("#explain-body")
+var cancelBtn = $("<button>").addClass("re-do").text("Start Over");
+
+// Store user gallery in local storage
+function saveUserPhotos() {
+   localStorage.setItem("userGallery", JSON.stringify(userGallery));
+
+};
 
 // Display only valid years for the chosen rover
 function getYear() {
+   explainHead = "Step One"
+   explainBody = "Choose which Earth year you'd like to view:"
+   explainHeadEl.text(explainHead);
+   explainBodyEl.text(explainBody);
    $(".buttons").empty();
    for(var k = 0; k < yearArr.length; k++) {
       var yearBtn = $("<button>").addClass("columns medium-6 years").attr("data-year", yearArr[k]).text(yearArr[k]);
@@ -60,6 +74,10 @@ function getYear() {
 
 // Display only valid months for the chosen year
 function getMonth() {
+   explainHead = "Step Two"
+   explainBody = "In "+ year + ", " + roverName +" sent us photos in the following months. Choose a month from the option below:"
+   explainHeadEl.text(explainHead);
+   explainBodyEl.text(explainBody);
    $(".buttons").empty();
    for (var l = 0; l < earthDateArr.length; l++) {
       if(earthDateArr[l].includes(year)){
@@ -81,6 +99,11 @@ function getMonth() {
 
 // Display only valid days for the chosen year and month
 function getDay() {
+   explainHead = "Step Three"
+   explainBody = "In " + moment(month, "MM").format("MMMM") +  " of  " + year +", " + roverName + " sent us photos on the following days; choose one:" 
+   explainHeadEl.text(explainHead);
+   explainBodyEl.text(explainBody);
+
    $(".buttons").empty();
    for (var n = 0; n < earthDateArr.length; n++) {
       daySearch = year + "-" + month
@@ -103,12 +126,16 @@ function getDay() {
 
 // User confirms the date they have chosen
 function confirmDate() {
+   explainHead = "Confirm Your Search Date"
+   explainBody = "Click the date below to display a view of Mars through the eyes of " + roverName +". Keep in mind, the rovers occasionally cast their gaze heavenward, so if you're not happy with the selection, simply start over and choose a different date."
+   explainHeadEl.text(explainHead);
+   explainBodyEl.text(explainBody);
    $(".buttons").empty();
+   
    photoDate = year + "-" + month + "-" + day
    var confirmBtn = $("<button>").addClass("confirm").text(moment(photoDate).format("MMMM DD, YYYY"));
-   var cancelBtn = $("<button>").addClass("re-do").text("Search Again");
-   var confirmEl = $("<h3>").text("Please confirm your search date:");
-   $(".buttons").append(confirmEl, confirmBtn, cancelBtn);
+   $(".buttons").append(confirmBtn, cancelBtn);
+
 
    $(".confirm").on("click", function() {
       getPhotos();
@@ -116,8 +143,6 @@ function confirmDate() {
    $(".re-do").on("click", function() {
       location.reload(true);
    });
-   
-   console.log("Your date is:" + photoDate);
 };
 
 // NASA Rover Photos API Call
@@ -156,10 +181,11 @@ function displayPhotos() {
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
       var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars"}).addClass("thumbnail");
       var resetBtn = $("<button>").attr("id", "reset").text("Reset");
-      var reloadBtn = $("<button>").addClass("re-do").text("Search Again");
+      var reloadBtn = $("<button>").addClass("re-do").text("Start Over");
+
       var galCreate = $("<button>").attr("id", "create").text("Create Gallery");
       imgDiv.append(imgEl);
-      $(".rover-grid").append(imgDiv);
+      $("#gallery").append(imgDiv);
    };
    $(".buttons").append(reloadBtn, galCreate, resetBtn);
    $(".re-do").on("click", function(){
@@ -170,6 +196,10 @@ function displayPhotos() {
 
 // Whent the gallery is built, user selects up to 4 photos for their own personal gallery
 function buildGallery () {
+   explainHead = "Build Your Backyard View"
+   explainBody = "Choose up to Four(4) beautiful Martian vistas to display on the viewscreens inside your Martian home. If you aren't happy with the selections you can always start over."
+   explainHeadEl.text(explainHead);
+   explainBodyEl.text(explainBody);
    $(".thumbnail").on("click", function () {
        $(this).toggleClass("selected");
    });
@@ -187,19 +217,41 @@ function buildGallery () {
       }
 
       for(var s = 0; s < $("img.selected").length; s ++){
-         var userImage = $("img.selected").attr("src");
-         userGallery.push(userImage);
+         var userImage = $("img.selected")[s]
+         var userImageLink = userImage.attr("src");
+         userGallery.push(userImageLink);
       }
-      
-      console.log(userGallery);
 
       $("img").off("click");
-      $("img:not(.selected)").hide();
+      // $("img:not(.selected)").hide();
+      $("#gallery").empty();
       $("img.selected").removeClass("selected");
+      displayGallery();
          
    });
 };
 
+function displayGallery() {
+   explainHead = "Ready for Launch!"
+   explainBody = "If you are ready to save your Backyard View, click the SAVE Button, otherwise click Start Over"
+   explainBodyEl.text(explainBody);
+   explainHeadEl.text(explainHead);
+   var saveBtn = $("<button>").addClass("save").text("SAVE");
+   for(var t = 0; t < userGallery.length; t++){
+      var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
+      var userImg = userGallery[t];
+      userImgEl = $("<img>").attr({src:userImg, alt:"Your photo from Mars"}).addClass("thumbnail");
+      imgDiv.append(userImgEl);
+      $("#gallery").append(imgDiv);
+   };
+   $(".buttons").append(saveBtn, cancelBtn);
+   $(".re-do").on("click", function() {
+      location.reload(true);
+   });
+   $(".save").on("click", function () {
+      saveUserPhotos();
+   })
+}
 // When user clicks a rover name, generates an array of valid earth dates for that rover
 $(".rovers").on("click", function() {
    roverName = $(this).attr("data-rover");

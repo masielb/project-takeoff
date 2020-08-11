@@ -38,6 +38,10 @@ img:hover {
 
 .roverexplain {
 
+    border: solid;
+    border-color: coral;
+    background-color: rgba(255, 127, 80, 0.5);
+    border-radius: 25px;
     margin-left: 20em;
     margin-right: 20em;
 }
@@ -61,10 +65,24 @@ button {
     margin: 1em;
 }
 
+button:hover {
+    cursor: pointer;
+    color: coral;
+    background-color: white;
+}
+
+button.save {
+    background-color: green;
+}
+
+button.save:hover {
+    color: green;
+    background-color: white;
+}
+
 .btns {
     margin-bottom: 2em;
 }
-
 
 @media only screen and (max-width: 1200px) {
     
