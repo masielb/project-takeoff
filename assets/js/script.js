@@ -1,7 +1,7 @@
 // Fire the foundation plugins and hide containers
 $(document).foundation();
 $("#explore-date").hide();
-$(".rover-pics").hide();
+$("#explore-user").hide();
 
 // NASA Mars Insight Weather API call and dynamic HTML elements
 $.ajax({
@@ -9,7 +9,6 @@ $.ajax({
    method: "GET"
 }).then(function(data) {
    var solKey = data.sol_keys;
-   console.log(solKey);
    for(var s = 0; s < solKey.length; s++){
       sol = solKey[s];
       minTempEl = $("<p>").text("Lo: " + data[sol].AT.mn.toFixed(1) + " °C");
@@ -26,8 +25,28 @@ $.ajax({
    }
 });
 
-// User experience global variables
-var user = {};
+// User ticket experience global variables
+var user = [];
+
+function takeOff() {
+   var userName = $("#username").val();
+   var launchDate = $("#start").val();
+
+   user.push(userName);
+   user.push(launchDate);
+   localStorage.setItem("user", JSON.stringify(user));
+   location.href="takeoff.html";
+
+}
+
+var storedUser = JSON.parse(localStorage.getItem("user"));
+
+if(storedUser !== null){
+   $("#ticket-header").text("Mars Ticket for: " + storedUser[0]);
+   $("#ticket-number").text("Confirmation #: 1312-YM1W-1Q33");
+   $("#ticket-text").text("Your Mission to Mars launches on: " + moment(storedUser[1]).format("MMMM DD, YYYY"));
+};
+
 
 // NASA Rover Picture Query Functionality Global Variables
 var year = "";
@@ -50,7 +69,28 @@ var cancelBtn = $("<button>").addClass("re-do").text("Start Over");
 
 // Store user gallery in local storage
 function saveUserPhotos() {
-   localStorage.setItem("userGallery", JSON.stringify(userGallery));
+   var jsonGallery = [];
+   for(var g = 0; g < userGallery.length; g++){
+      var image =  userGallery[g].currentSrc
+      jsonGallery.push(image);
+   }
+   localStorage.setItem("userGallery", JSON.stringify(jsonGallery));
+
+   explainHead = "Ready For Launch!"
+   explainBody = "Enter your name below and Choose your launch date:"
+   explainHeadEl.text(explainHead);
+   explainBodyEl.text(explainBody);
+   $(".buttons").empty();
+   $("#gallery").empty();
+
+   $("#explore-date").show();
+   $("#explore-user").show();
+
+   var submitBtn = $("<button>").addClass("submit").text("Take Off!");
+   $(".buttons").append(submitBtn);
+   $(".submit").on("click", function() {
+      takeOff();
+   });
 
 };
 
@@ -179,8 +219,8 @@ function displayPhotos() {
    for(var r = 0; r < 6; r++){
       $(".buttons").empty();
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
-      var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars"}).addClass("thumbnail");
-      var resetBtn = $("<button>").attr("id", "reset").text("Reset");
+      var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars", id:"photo-"+[r]}).addClass("thumbnail");
+      var resetBtn = $("<button>").attr("id", "reset").text("Reset Selection");
       var reloadBtn = $("<button>").addClass("re-do").text("Start Over");
 
       var galCreate = $("<button>").attr("id", "create").text("Create Gallery");
@@ -207,40 +247,39 @@ function buildGallery () {
        $("img.selected").removeClass("selected");
    });
    $("#create").on("click", function () {
-      $(".buttons").empty();
+      if ($("img.selected").length === 0 || $("img.selected").length > 4 ) {
+         $("#create").attr("data-open", "errormodal");
 
-      if ($("img.selected").length == 0) {
-         alert("Select at least 1 image");
-         return false;
-      } else if ($("img.selected").length > 4) {
-         alert("You may choose up to 4 images, please limit your selection to 4")
-      }
+      } else {
+         $("#create").removeAttr("data-open", "errormodal");
+         displayGallery();
 
-      for(var s = 0; s < $("img.selected").length; s ++){
-         var userImage = $("img.selected")[s]
-         var userImageLink = userImage.attr("src");
-         userGallery.push(userImageLink);
-      }
-
-      $("img").off("click");
-      // $("img:not(.selected)").hide();
-      $("#gallery").empty();
-      $("img.selected").removeClass("selected");
-      displayGallery();
-         
+      };  
    });
 };
 
 function displayGallery() {
-   explainHead = "Ready for Launch!"
-   explainBody = "If you are ready to save your Backyard View, click the SAVE Button, otherwise click Start Over"
+   $(".buttons").empty();
+   $("img").off("click");
+   $("img:not(.selected)").remove();
+   $("img.selected").removeClass("selected");
+
+   var userImage = $(".thumbnail");
+   for (var s = 0; s < userImage.length; s++){
+      userGallery.push(userImage[s]);
+   }
+   console.log(userGallery)
+   $("#gallery").empty();
+
+
+   explainHead = "You're almost there!"
+   explainBody = "If you are ready to save your Backyard View, click the SAVE Button, otherwise click Start Ove."
    explainBodyEl.text(explainBody);
    explainHeadEl.text(explainHead);
    var saveBtn = $("<button>").addClass("save").text("SAVE");
    for(var t = 0; t < userGallery.length; t++){
       var imgDiv = $("<div>").addClass("columns small-12 medium-4 large-3");
-      var userImg = userGallery[t];
-      userImgEl = $("<img>").attr({src:userImg, alt:"Your photo from Mars"}).addClass("thumbnail");
+      var userImgEl = userGallery[t];
       imgDiv.append(userImgEl);
       $("#gallery").append(imgDiv);
    };
@@ -250,8 +289,8 @@ function displayGallery() {
    });
    $(".save").on("click", function () {
       saveUserPhotos();
-   })
-}
+   });
+};
 // When user clicks a rover name, generates an array of valid earth dates for that rover
 $(".rovers").on("click", function() {
    roverName = $(this).attr("data-rover");

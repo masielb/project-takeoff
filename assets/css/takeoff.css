@@ -20,6 +20,7 @@ a {
 
 .card {
     margin: 5em;
+    box-shadow: 0 10px 20px 0 gray;
 }
 
 #bg {
