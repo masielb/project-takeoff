@@ -1003,7 +1003,7 @@ select {
     background-color: transparent;
     color: #fefefe; }
   .button:hover, .button:focus {
-    background-color: #F0A235;
+    background-color: white;
     color: #fefefe; }
   .button.primary, .button.primary.disabled, .button.primary[disabled], .button.primary.disabled:hover, .button.primary[disabled]:hover, .button.primary.disabled:focus, .button.primary[disabled]:focus {
     background-color: #2ba6cb;
@@ -3083,9 +3083,9 @@ a.button:hover, a.button:focus {
   position: relative;
   margin: 0 0 1rem 0;
   padding: 1rem;
-  border: 1px solid rgba(240, 162, 53, 0.75);
+  border: 1px solid rgba(255,127,80, 0.75);
   border-radius: 3px;
-  background-color: rgba(240, 162, 53, 0.25);
+  background-color: rgba(255,127,80, 0.25);
   color: #0a0a0a; }
   .callout > :first-child {
     margin-top: 0; }

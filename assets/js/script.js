@@ -136,6 +136,7 @@ function confirmDate() {
    var confirmBtn = $("<button>").addClass("confirm").text(moment(photoDate).format("MMMM DD, YYYY"));
    $(".buttons").append(confirmBtn, cancelBtn);
 
+
    $(".confirm").on("click", function() {
       getPhotos();
    });
@@ -181,6 +182,7 @@ function displayPhotos() {
       var imgEl = $("<img>").attr({src:imgArr[r], alt:"A photo from Mars", id:"photo-"+[r]}).addClass("thumbnail");
       var resetBtn = $("<button>").attr("id", "reset").text("Reset");
       var reloadBtn = $("<button>").addClass("re-do").text("Start Over");
+
       var galCreate = $("<button>").attr("id", "create").text("Create Gallery");
       imgDiv.append(imgEl);
       $("#gallery").append(imgDiv);
@@ -281,20 +283,36 @@ $(".rovers").on("click", function() {
    });
 });
 
-// fade in for landing page
+// fade in for landing and explore page
 $("#bg").animate({
    opacity: 1,
  }, 2000, function() {
 
  });
 
- //smooth transition from landing to explore
- $(".test").on("click", function () {
+ //smooth transition to explore pages
+ $(".explore").on("click", function () {
    $("#bg").animate({
      opacity: 0,
    }, 1000, function() {
      window.location.href = "./explore.html";
    })
-
-   
  });
+
+ $(".plan").on("click", function () {
+   $("#bg").animate({
+     opacity: 0,
+   }, 1000, function() {
+     window.location.href = "./index.html";
+   })
+ });
+
+ $(".takeoff").on("click", function () {
+   $("#bg").animate({
+     opacity: 0,
+   }, 1000, function() {
+     window.location.href = "./takeoff.html";
+   })
+ });
+ 
+ 

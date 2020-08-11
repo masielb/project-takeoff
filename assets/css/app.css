@@ -50,6 +50,7 @@ a, h1, .fs {
 
 #content {
   position: relative;
+
 }
 
 #weather-title {
@@ -66,8 +67,8 @@ a, h1, .fs {
   color: white;
 }
 
-.top-bar {
-  background-color: rgba(240, 162, 53, 0.95);
+.top-bar, .title-bar {
+  background-color: rgba(255,127,80,0.8) !important;
 }
 
 a:hover, a:focus {
@@ -76,4 +77,11 @@ a:hover, a:focus {
 
 .button:hover, .button:focus {
   background-color: white;
-  color: #F0A235 }
+  color: rgba(255,127,80,0.8);
+ }
+
+
+.content {
+  margin-top: 10px;
+  margin-left: 10px;
+}
