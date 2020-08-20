@@ -34,12 +34,12 @@ function takeOff() {
 
    user.push(userName);
    user.push(launchDate);
-   localStorage.setItem("user", JSON.stringify(user));
+   localStorage.setItem("mars-user", JSON.stringify(user));
    location.href="takeoff.html";
 
 }
 
-var storedUser = JSON.parse(localStorage.getItem("user"));
+var storedUser = JSON.parse(localStorage.getItem("mars-user"));
 
 if(storedUser !== null){
    $("#ticket-header").text("Mars Ticket for: " + storedUser[0]);
